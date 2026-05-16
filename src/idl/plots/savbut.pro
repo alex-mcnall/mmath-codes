@@ -31,7 +31,6 @@ pro savbut, data, filepath, scale, low, high, yearmin
 
     ; Create and save image
     xsize=12.0
-    exportdir = '../examples/kittpeak/'
     device, decomposed=0, xsize=xsize, /encapsulated
         tvimg = bytscl(congrid(data, xy[0], xy[1]), low, high)
         tvlct, r, g, b, /GET

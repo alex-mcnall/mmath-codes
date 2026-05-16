@@ -1,7 +1,0 @@
-#!/bin/csh
-
-#+
-# To be executed from the root folder of this repository
-# This adds the src/ folder to the IDL_PATH
-#-
-setenv IDL_PATH '<IDL_DEFAULT>:'+`pwd`/src

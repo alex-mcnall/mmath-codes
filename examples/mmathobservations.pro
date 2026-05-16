@@ -31,13 +31,13 @@ pro mmathObservations
     !P.TICKLEN = -abs(!P.TICKLEN)
 
     ;+ Directory containing FITS (to read)
-    fit_dir = "./data/mag/"
+    fit_dir = "./synoptic_magnetograms/standard_resolution/"
 
     ;+ Filepath of the Carrington Rotation metadata (to read)
-    carr_file = "./data/dates/carrington.rotations"
+    carr_file = "./synoptic_magnetograms/dates/carrington.rotations"
 
     ;+ Root export directory
-    exportdir = "./examples/magnetic-observations/"
+    exportdir = "./outputs/synoptic_magnetograms/"
 
     ;+ Directory to read/write script variables to
     variables_path = exportdir + "processed-field.sav"

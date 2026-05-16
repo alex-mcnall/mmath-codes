@@ -27,7 +27,6 @@ pro savmap, data, filepath, scale, low, high
     set_plot, 'ps'
 
     xsize=12.0
-    exportdir = '../examples/kittpeak/'
     device, decomposed=0, xsize=xsize, /encapsulated
         ; Create and save image
         tvimg = bytscl(congrid(data, xy[0], xy[1]), low, high)

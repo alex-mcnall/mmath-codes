@@ -23,15 +23,15 @@ LD := $(FC)
 RM := rm -f
 
 # List of all source files
-SRCS := src/cartesian-flux-transport/io.f90 \
-	src/cartesian-flux-transport/kernel.f90
+SRCS := io.f90 \
+	kernel.f90
 
-TEST_SRCS := src/cartesian-flux-transport/solver.f90 \
-	     src/cartesian-flux-transport/tests/tests_find_dt.f90
+TEST_SRCS := solver.f90 \
+	     tests/tests_find_dt.f90
 	     
 # Add source and tests directories to search paths
 vpath % .: src/cartesian-flux-transport
-vpath % .: src/cartesian-flux-transport/tests
+vpath % .: tests
 
 # Define a map from each file name to its object file
 obj = $(src).o
@@ -60,12 +60,12 @@ $(OBJS) $(TEST_OBJS): %.o: %
 	$(FC) $(COMPILERFLAGS) -c -o $@ $<
 
 # Define all module interdependencies
-io.mod := src/cartesian-flux-transport/io.f90
-kernel.mod := src/cartesian-flux-transport/kernel.f90
+io.mod := io.f90
+kernel.mod := kernel.f90
 
-$(src/cartesian-flux-transport/solver.f90): $(io.mod)
-$(src/cartesian-flux-transport/solver.f90): $(kernel.mod)
-$(src/cartesian-flux-transport/tests/tests_find_dt.f90): $(kernel.mod)
+$(solver.f90): $(io.mod)
+$(solver.f90): $(kernel.mod)
+$(tests/tests_find_dt.f90): $(kernel.mod)
 
 # Cleanup, filter to avoid removing source code by accident
 clean:
